@@ -1,7 +1,7 @@
 {
   "name": "viewdiff",
   "version": "1.0.0",
-  "description": "View diffs in electron",
+  "description": "View your diffs a separate window.",
   "main": "server.js",
   "bin": "./cli.js",
   "scripts": {
@@ -14,6 +14,13 @@
     "babel": "^5.8.23",
     "electron-prebuilt": "^0.33.8"
   },
+  "keywords": [
+    "standalone",
+    "preview",
+    "electron",
+    "diff",
+    "git"
+  ],
   "dependencies": {
     "get-stdin": "^5.0.0",
     "highlight.js": "^8.8.0",

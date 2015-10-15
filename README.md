@@ -2,7 +2,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 
-> :ledger: view diffs in a separate window.
+> :ledger: view your diffs in a separate window.
 
 ![screenshot](./screenshot.png)
 
