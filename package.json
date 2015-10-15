@@ -1,9 +1,10 @@
 {
   "name": "viewdiff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "View your diffs a separate window.",
   "main": "server.js",
   "bin": "./cli.js",
+  "repository": "olahol/viewdiff",
   "scripts": {
     "build": "babel client.js > dist.js",
     "prepublish": "npm run build"
