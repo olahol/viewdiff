@@ -5,15 +5,13 @@ var stdin = require("get-stdin")();
 var window = null;
 
 app.on("window-all-closed", function() {
-  if (process.platform != "darwin") {
-    app.quit();
-  }
+  app.quit();
 });
 
 
 app.on("ready", function() {
   window = new BrowserWindow({title: "viewdiff", width: 800, height: 600});
-  //window.setMenu(null);
+  window.setMenu(null);
   window.loadUrl("file://" + __dirname + "/index.html");
   window.on("closed", function() {
     window = null;
