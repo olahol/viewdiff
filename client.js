@@ -24,7 +24,9 @@ function Change(props) {
       <td className="nostretch">
         {!props.del && ln2}
       </td>
-      <td dangerouslySetInnerHTML={{__html: html}} />
+      <td>
+        <pre dangerouslySetInnerHTML={{__html: html}} />
+      </td>
     </tr>
   );
 }

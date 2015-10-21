@@ -40,7 +40,11 @@ function Change(props) {
       { className: "nostretch" },
       !props.del && ln2
     ),
-    React.createElement("td", { dangerouslySetInnerHTML: { __html: html } })
+    React.createElement(
+      "td",
+      null,
+      React.createElement("pre", { dangerouslySetInnerHTML: { __html: html } })
+    )
   );
 }
 

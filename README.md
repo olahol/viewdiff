@@ -24,6 +24,11 @@ $ git diff | viewdiff
 $ viewdiff < a.diff
 ```
 
+## Contributors
+
+* Ola Holmström (@olahol)
+* Eric Hagman (@emhagman)
+
 [npm-image]: https://img.shields.io/npm/v/viewdiff.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/viewdiff
 [downloads-image]: http://img.shields.io/npm/dm/viewdiff.svg?style=flat-square
