@@ -1,3 +1,7 @@
+# 1.0.5 (2015-10-22)
+
+* Preemptively parse diff.
+
 # 1.0.4 (2015-10-20)
 
 * Don't start electron if there is no diff.

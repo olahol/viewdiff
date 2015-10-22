@@ -1,31 +1,33 @@
 #!/usr/bin/env node
-var spawn = require("child_process").spawn
-var electron = require("electron-prebuilt")
-var path = require("path")
-var fs = require("fs")
+var spawn = require("child_process").spawn;
+var electron = require("electron-prebuilt");
+var path = require("path");
+var parse = require("parse-diff");
+var stdin = require("get-stdin")();
+var Readable = require("stream").Readable;
 
 var serverPath = path.join(__dirname, "./server.js")
 var args = [serverPath];
 
-var hasRead = false;
-process.stdin.on('readable', function () {
-  var partial = process.stdin.read(1);
-  if (!partial) {
-    console.error("Your branch has no changes to view.");
-    process.exit(0);
+if (process.stdin.isTTY) {
+  console.error("No stdin provided.");
+  process.exit(1);
+}
+
+stdin.then(function (raw) {
+  var diff = parse(raw);
+
+  if (!(diff instanceof Array) || diff.length === 0) {
+    console.error("Could not parse diff.");
+    process.exit(1);
   }
-  if (partial && !hasRead) {
-    partial = partial.toString().trim();
-    hasRead = true;
-    if (!process.stdin.isTTY && partial !== "") {
-      var proc = spawn(electron, args)
-      process.stdin.pipe(proc.stdin)
-    } else if (partial === "") {
-      console.error("Your branch has no changes to view.");
-      process.exit(0);
-    } else {
-      console.error("No stdin provided");
-      process.exit(1);
-    }
-  }
+
+  var proc = spawn(electron, args)
+
+  var stream = new Readable();
+
+  stream.push(JSON.stringify(diff));
+  stream.push(null);
+
+  stream.pipe(proc.stdin);
 });

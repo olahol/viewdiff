@@ -1,7 +1,6 @@
 "use strict";
 
 var ipc = require("ipc");
-var parse = require("parse-diff");
 var React = require("react");
 var ReactDOM = require("react-dom");
 
@@ -140,12 +139,7 @@ function Main(props) {
 }
 
 ipc.on("diff", function (raw) {
-  var diff = parse(raw);
-
-  if (!(diff instanceof Array) || diff.length === 0) {
-    alert("Could not parse diff.");
-    return;
-  }
+  var diff = JSON.parse(raw);
 
   ReactDOM.render(React.createElement(Main, { diff: diff }), document.getElementById("content"));
 });

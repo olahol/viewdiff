@@ -1,6 +1,6 @@
 {
   "name": "viewdiff",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "View your diffs a separate window.",
   "main": "server.js",
   "bin": "./cli.js",
